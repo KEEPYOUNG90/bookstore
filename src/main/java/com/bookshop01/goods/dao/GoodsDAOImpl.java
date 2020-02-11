@@ -46,4 +46,10 @@ public class GoodsDAOImpl  implements GoodsDAO{
 		return imageList;
 	}
 	
+	@Override
+	public ArrayList selectGoodsBySearchSort(String searchSort) throws DataAccessException{
+		ArrayList list=(ArrayList)sqlSession.selectList("mapper.goods.selectGoodsBySearchSort",searchSort);
+		 return list;
+	}
+	
 }

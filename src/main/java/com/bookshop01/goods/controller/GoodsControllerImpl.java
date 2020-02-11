@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bookshop01.common.base.BaseController;
 import com.bookshop01.goods.service.GoodsService;
 import com.bookshop01.goods.vo.GoodsVO;
-import com.bookshop01.member.vo.MemberVO;
 
 import net.sf.json.JSONObject;
 
@@ -54,7 +53,7 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 		keyword = keyword.toUpperCase();
 	    List<String> keywordList =goodsService.keywordSearch(keyword);
 	    
-	 // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¼ï¿½ï¿½ï¿½ JSONObject ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ã¼)
+	 // ÃÖÁ¾ ¿Ï¼ºµÉ JSONObject ¼±¾ð(ÀüÃ¼)
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("keyword", keywordList);
 		 		
@@ -76,11 +75,11 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 	
 	private void addGoodsInQuick(String goods_id,GoodsVO goodsVO,HttpSession session){
 		boolean already_existed=false;
-		List<GoodsVO> quickGoodsList; //ï¿½Ö±ï¿½ ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ArrayList
+		List<GoodsVO> quickGoodsList; //ÃÖ±Ù º» »óÇ° ÀúÀå ArrayList
 		quickGoodsList=(ArrayList<GoodsVO>)session.getAttribute("quickGoodsList");
 		
 		if(quickGoodsList!=null){
-			if(quickGoodsList.size() < 4){ //ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			if(quickGoodsList.size() < 4){ //¹Ì¸®º» »óÇ° ¸®½ºÆ®¿¡ »óÇ°°³¼ö°¡ ¼¼°³ ÀÌÇÏÀÎ °æ¿ì
 				for(int i=0; i<quickGoodsList.size();i++){
 					GoodsVO _goodsBean=(GoodsVO)quickGoodsList.get(i);
 					if(goods_id.equals(_goodsBean.getGoods_id())){
@@ -101,5 +100,18 @@ public class GoodsControllerImpl extends BaseController   implements GoodsContro
 		session.setAttribute("quickGoodsList",quickGoodsList);
 		session.setAttribute("quickGoodsListNum", quickGoodsList.size());
 	}
+	
+	@RequestMapping(value="/searchCategory.do" ,method = RequestMethod.GET)
+	public ModelAndView searchSort(@RequestParam("searchSort") String searchSort,
+			                       HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String viewName=(String)request.getAttribute("viewName");
+		List<GoodsVO> goodsList=goodsService.searchSort(searchSort);
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("goodsList", goodsList);
+		return mav;
+		
+	}
+	
+	
 	
 }

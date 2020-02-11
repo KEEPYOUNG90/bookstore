@@ -13,4 +13,5 @@ public interface GoodsService {
 	
 	public List<String> keywordSearch(String keyword) throws Exception;
 	public List<GoodsVO> searchGoods(String searchWord) throws Exception;
+	public List<GoodsVO> searchSort(String searchSort) throws Exception;
 }

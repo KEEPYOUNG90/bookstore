@@ -49,6 +49,11 @@ public class GoodsServiceImpl implements GoodsService{
 		List goodsList=goodsDAO.selectGoodsBySearchWord(searchWord);
 		return goodsList;
 	}
+
+	public List<GoodsVO> searchSort(String searchSort) throws Exception{
+		List goodsList=goodsDAO.selectGoodsBySearchSort(searchSort);
+		return goodsList;
+	}
 	
 	
 }

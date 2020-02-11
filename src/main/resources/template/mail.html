@@ -1,0 +1,53 @@
+<BODY>
+	<H1>1.최종 주문 내역서</H1>
+	<TABLE class="list_view">
+		<TBODY align=center>
+			<tr style="background: #33ff00">
+			     <td>주문번호 </td>
+				<td colspan=2 class="fixed">주문상품명</td>
+				<td>수량</td>
+				<td>주문금액</td>
+				<td>배송비</td>
+				<td>예상적립금</td>
+				<td>주문금액합계</td>
+			</tr>
+			
+			<_order_list_>
+			
+		</TBODY>
+	</TABLE>
+	<DIV class="clear"></DIV>
+<form  name="form_order">
+	<br>
+	<br>
+	<H1>2.배송지 정보</H1>
+	
+	<_arrive_list_>
+
+	<DIV class="clear"></DIV>
+	<br>
+	<br>
+	<br>
+	<H1>3.결제정보</H1>
+	<DIV class="detail_table">
+		<table>
+		<_pay_info_>
+
+		</table>
+	</DIV>
+</form>
+    <DIV class="clear"></DIV>
+	<br>
+	<br>
+	<br>
+	<center>
+		<br>
+		<br> 
+		<a href="${contextPath}/main/main.do"> 
+		   <IMG width="75" alt="" src="${contextPath}/resources/image/btn_shoping_continue.jpg">
+		</a>
+<DIV class="clear"></DIV>		
+	
+			
+			
+			

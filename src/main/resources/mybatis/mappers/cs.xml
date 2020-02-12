@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.cs">
+	<!-- 리절트 맵 정의 -->
+	<resultMap id="csResult" type="csVO">
+		<result property="acrticle_id" column="ARTICLE_ID" />
+		<result property="user_id" column="USER_ID" />
+		<result property="article_title" column="ARTICLE_TITLE" />
+		<result property="article_detail" column="ARTICLE_DETAIL" />
+		<result property="goods_fileName" column="REGDATE" />
+	</resultMap>
+	
+	
+	<resultMap id="memberResult" type="MemberVO">
+		<result property="member_id" column="member_id" />
+	</resultMap>
+
+	<select id="selectCartList"  parameterType="cartVO"  resultMap="cartResult"   >
+	    <![CDATA[
+		select * from T_BOARD 
+		where user_id=#{member_id} 
+		]]>
+	</select>
+
+</mapper>

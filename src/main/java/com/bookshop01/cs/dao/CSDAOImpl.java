@@ -11,13 +11,13 @@ import com.bookshop01.cart.vo.CartVO;
 import com.bookshop01.cs.vo.csVO;
 import com.bookshop01.goods.vo.GoodsVO;
 
-@Repository("cartDAO")
+@Repository("csDAO")
 public class CSDAOImpl  implements  CSDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<csVO> CSList(csVO csVO) throws DataAccessException {
-		List<csVO> csList =(List)sqlSession.selectList("mapper.cart.selectCartList",csVO);
+	public List<csVO> CSList() throws DataAccessException {
+		List<csVO> csList =(List)sqlSession.selectList("mapper.cs.selectCSList");
 		return csList;
 	}
 

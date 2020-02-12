@@ -9,6 +9,6 @@ import com.bookshop01.cs.vo.csVO;
 import com.bookshop01.goods.vo.GoodsVO;
 
 public interface CSDAO {
-	public List<csVO> CSList(csVO csVO) throws DataAccessException;
+	public List<csVO> CSList() throws DataAccessException;
 
 }

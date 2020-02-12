@@ -16,15 +16,16 @@ import com.bookshop01.cs.dao.CSDAO;
 import com.bookshop01.cs.vo.csVO;
 import com.bookshop01.goods.vo.GoodsVO;
 
-@Service("cartService")
+@Service("csService")
 @Transactional(propagation=Propagation.REQUIRED)
 public class CSServiceImpl  implements CSService{
 	@Autowired
 	CSDAO csdao;
 	
-	public List<csVO> CSList(csVO csVO) throws Exception{
-		List<csVO> csList = csdao.CSList(csVO);
-		if(csList.size()==0){ //Ä«Æ®¿¡ ÀúÀåµÈ »óÇ°ÀÌ¾ø´Â °æ¿ì
+	public List<csVO> CSList() throws Exception{
+		List<csVO> csList = csdao.CSList();
+		System.out.println(csList.size()+"dsfkjsdjlfjsdkflsjdlfjlsdfl");
+		if(csList.size()==0){ //ì¹´íŠ¸ì— ì €ì¥ëœ ìƒí’ˆì´ì—†ëŠ” ê²½ìš°
 			return null;
 		}
 		return csList;

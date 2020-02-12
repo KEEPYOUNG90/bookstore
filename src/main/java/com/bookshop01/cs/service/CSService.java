@@ -10,6 +10,6 @@ import com.bookshop01.cs.vo.csVO;
 import com.bookshop01.goods.vo.GoodsVO;
 
 public interface CSService {	
-	public List<csVO> CSList(csVO csVO) throws Exception;
+	public List<csVO> CSList() throws Exception;
 
 }

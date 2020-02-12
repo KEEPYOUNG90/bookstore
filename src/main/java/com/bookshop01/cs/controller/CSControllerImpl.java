@@ -27,16 +27,14 @@ public class CSControllerImpl extends BaseController implements CSController{
 	@Autowired
 	MemberVO memberVO;
 	
-	@RequestMapping(value="/myCartList.do" ,method = RequestMethod.GET)
+	@RequestMapping(value="/csList.do" ,method = RequestMethod.GET)
 	public ModelAndView myCartMain(HttpServletRequest request, HttpServletResponse response)  throws Exception {
 		String viewName=(String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView(viewName);
 		HttpSession session=request.getSession();
-		MemberVO memberVO=(MemberVO)session.getAttribute("memberInfo");
-		String member_id=memberVO.getMember_id();
-		csVO.setUser_id(member_id);
-		List<csVO> CSList = csService.CSList(csVO);
-		session.setAttribute("CSList", CSList);//Àå¹Ù±¸´Ï ¸ñ·Ï È­¸é¿¡¼­ »óÇ° ÁÖ¹® ½Ã »ç¿ëÇÏ±â À§ÇØ¼­ Àå¹Ù±¸´Ï ¸ñ·ÏÀ» ¼¼¼Ç¿¡ ÀúÀåÇÑ´Ù.
+		
+		List<csVO> CSList = csService.CSList();
+		session.setAttribute("CSList", CSList);//ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È­ï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½Ö¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		//mav.addObject("cartMap", cartMap);
 		return mav;
 	}

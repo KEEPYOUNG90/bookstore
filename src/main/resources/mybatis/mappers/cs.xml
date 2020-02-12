@@ -10,7 +10,7 @@
 		<result property="user_id" column="USER_ID" />
 		<result property="article_title" column="ARTICLE_TITLE" />
 		<result property="article_detail" column="ARTICLE_DETAIL" />
-		<result property="goods_fileName" column="REGDATE" />
+		<result property="regdate" column="REGDATE" />
 	</resultMap>
 	
 	
@@ -18,10 +18,9 @@
 		<result property="member_id" column="member_id" />
 	</resultMap>
 
-	<select id="selectCartList"  parameterType="cartVO"  resultMap="cartResult"   >
+	<select id="selectCSList" resultType="csVO">
 	    <![CDATA[
-		select * from T_BOARD 
-		where user_id=#{member_id} 
+		select * from T_BOARD  
 		]]>
 	</select>
 

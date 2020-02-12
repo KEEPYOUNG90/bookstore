@@ -2,13 +2,15 @@ package com.bookshop01.cs.vo;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component("csVO")
 public class csVO {
 	private int acrticle_id;
 	private String user_id;
 	private String article_title;
 	private String article_detail;
-	private String goods_fileName;
-	
+	private Date regdate;
 	public int getAcrticle_id() {
 		return acrticle_id;
 	}
@@ -33,18 +35,13 @@ public class csVO {
 	public void setArticle_detail(String article_detail) {
 		this.article_detail = article_detail;
 	}
-	public String getGoods_fileName() {
-		return goods_fileName;
-	}
-	public void setGoods_fileName(String goods_fileName) {
-		this.goods_fileName = goods_fileName;
-	}
 	public Date getRegdate() {
 		return regdate;
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	private Date regdate;
+	
+
 
 }
